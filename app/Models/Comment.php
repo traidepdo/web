@@ -1,0 +1,28 @@
+<?php
+
+namespace App\Models;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\Model;
+
+class Comment extends Model
+{
+    use HasFactory;
+
+    protected $fillable = [
+        'video_id',
+        'user_id',
+        'content'
+    ];
+
+    // Quan hệ với video
+    public function video()
+    {
+        return $this->belongsTo(Video::class);
+    }
+
+    // Quan hệ với người dùng
+    public function user()
+    {
+        return $this->belongsTo(User::class);
+    }
+}
